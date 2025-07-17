@@ -1,0 +1,197 @@
+/* === Base === */
+body {
+  background: #0c0c0c;
+  color: #00ff99;
+  font-family: 'Consolas', monospace;
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === Animated Grid Background === */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 100, 0.1) 0px,
+    rgba(0, 255, 100, 0.1) 4px,
+    transparent 4px,
+    transparent 40px
+  );
+  background-size: 100% 40px;
+  animation: scrollLines 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes scrollLines {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 100%; }
+}
+
+/* === Header Title Animation === */
+h1 span {
+  display: inline-block;
+  animation: flicker 2s linear infinite;
+}
+
+h1 span:nth-child(1) { animation-delay: 0s; }
+h1 span:nth-child(2) { animation-delay: 0.2s; }
+h1 span:nth-child(3) { animation-delay: 0.4s; }
+h1 span:nth-child(4) { animation-delay: 0.6s; }
+h1 span:nth-child(5) { animation-delay: 0.8s; }
+h1 span:nth-child(6) { animation-delay: 1s; }
+h1 span:nth-child(7) { animation-delay: 1.2s; }
+h1 span:nth-child(8) { animation-delay: 1.4s; }
+
+@keyframes flicker {
+  0%, 100%   { color: #00ff99; text-shadow: 0 0 15px #00ff99; }
+  50%        { color: #000; text-shadow: none; }
+}
+
+.subtitle {
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #66ffcc;
+}
+
+/* === Floating Boxes === */
+.box {
+  border: 2px solid #00ff99;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  background-color: rgba(17, 17, 17, 0.95);
+  box-shadow: 0 0 25px #00ff99aa;
+  backdrop-filter: blur(3px);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.box:hover {
+  transform: translateY(-4px);
+}
+
+/* Info box specific */
+.info-box h2 {
+  margin: 0;
+  color: #00cc77;
+}
+
+/* === Modal === */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal-content {
+  position: relative;
+  background-color: rgba(17,17,17,0.95);
+  border: 2px solid #00ff99;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0 0 30px #00ff99aa;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  color: #00ff99;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #ff0066;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #00ff99;
+}
+
+.modal-content p {
+  text-align: left;
+  line-height: 1.5;
+  margin-bottom: 1em;
+}
+
+/* === Forms === */
+input, textarea, button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 85%;
+  background: #000;
+  color: #00ff99;
+  border: 1px solid #00ff99;
+  border-radius: 7px;
+  box-shadow: 0 0 10px #00ff9933;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+button {
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #00ff99;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ff99;
+}
+
+/* === Output === */
+#output {
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px;
+  color: #00ffcc;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+/* === Responsive === */
+@media screen and (max-width: 600px) {
+  .box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  input, textarea, button {
+    width: 95%;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+}

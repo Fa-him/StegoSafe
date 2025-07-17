@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StegoSafe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>
+    <span>S</span><span>t</span><span>e</span><span>g</span><span>o</span><span>S</span><span>a</span><span>f</span><span>e</span>
+  </h1>
+
+  <p class="subtitle">Hide and reveal secrets inside images 🔐</p>
+
+  <!-- Info Box -->
+  <section class="box info-box" id="infoBox">
+    <h2>❓ Want to know how it works?</h2>
+  </section>
+
+  <!-- Encode Section -->
+  <section class="box">
+    <h2>🧬 Encode Message</h2>
+    <form id="encodeForm" method="POST" enctype="multipart/form-data">
+      <input type="file" name="cover" accept="image/png" required>
+      <textarea name="message" placeholder="Enter secret message..." required></textarea>
+      <input type="text" name="password" placeholder="Password (optional)">
+      <button type="submit">🔒 Encode & Download</button>
+    </form>
+  </section>
+
+  <!-- Decode Section -->
+  <section class="box">
+    <h2>🔍 Decode Message</h2>
+    <form id="decodeForm" method="POST" enctype="multipart/form-data">
+      <input type="file" name="stego" accept="image/png" required>
+      <input type="text" name="password" placeholder="Password (if used)">
+      <button type="submit">🔓 Decode Message</button>
+    </form>
+    <p id="output"></p>
+  </section>
+
+  <!-- How It Works Modal -->
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>How StegoSafe Works</h2>
+      <p>🚀 <strong>Step 1:</strong> You upload a PNG image (lossless!).</p>
+      <p>🔒 <strong>Step 2:</strong> Enter your secret message and an optional password to encrypt it.</p>
+      <p>🧬 <strong>Step 3:</strong> StegoSafe encodes your message into the <em>least significant bits</em> of each pixel.</p>
+      <p>🖼️ <strong>Step 4:</strong> Download the new image—looks unchanged but holds your hidden data!</p>
+      <p>🔍 <strong>Decoding:</strong> Upload the stego-image, enter password if used, and reveal your secret. 🎉</p>
+      <p>⚠️ Remember: Use PNG image and keep your password safe!</p>
+    </div>
+  </div>
+
+  <script src="stego.js"></script>
+  <script>
+    // Modal handling
+    const infoBox = document.getElementById('infoBox');
+    const infoModal = document.getElementById('infoModal');
+    const closeModal = document.getElementById('closeModal');
+
+    infoBox.addEventListener('click', () => {
+      infoModal.style.display = 'flex';
+    });
+    closeModal.addEventListener('click', () => {
+      infoModal.style.display = 'none';
+    });
+    window.addEventListener('click', e => {
+      if (e.target === infoModal) infoModal.style.display = 'none';
+    });
+  </script>
+
+
+    <!-- Visitor Count -->
+  <p class="visitor-count">
+  👀 : 
+  <img src="https://visitor-badge.glitch.me/badge?page_id=fa-him.stegosafe" alt="visitor badge">
+</p>
+
+
+
+  <footer>
+    Made with 💖 by <a href="https://www.linkedin.com/in/fahim555/" target="_blank">Fahim</a>
+  </footer>
+</body>
+</html>
