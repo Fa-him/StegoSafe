@@ -98,6 +98,14 @@ h1 span:nth-child(8) { animation-delay: 1.4s; }
   z-index: 10;
 }
 
+.visitor-count {
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 10px;
+  color: #00ffcc;
+}
+
+
 .modal-content {
   position: relative;
   background-color: rgba(17,17,17,0.95);
