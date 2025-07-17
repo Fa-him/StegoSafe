@@ -3,7 +3,7 @@
 **Hide and reveal secrets inside images, right from your browser.**  
 A minimal, modern, one-page steganography tool powered by HTML, CSS, and JavaScript.
 
-🔗 Try it Live: [example.io/stegosafe](https://example.io/stegosafe)
+🔗 Try it Live: [Here](https://fa-him.github.io/StegoSafe/)
 
 ---
 
@@ -18,8 +18,6 @@ A minimal, modern, one-page steganography tool powered by HTML, CSS, and JavaScr
 - ❤️ **Open Source**: Lightweight, frontend-only project. Easy to host or extend.
 
 ---
-
-## 🚀 Getting Started
 
 ### 🧩 Clone the Repo
 ```bash
